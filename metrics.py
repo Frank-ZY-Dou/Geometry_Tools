@@ -1,6 +1,8 @@
 import numpy as np
 from scipy.spatial import cKDTree
+from scipy.spatial.distance import directed_hausdorff
 import trimesh
+
 
 def chamfer_distance(input_mesh_file, reference_mesh_file):
     input_mesh = trimesh.load_mesh(input_mesh_file)
@@ -20,14 +22,18 @@ def chamfer_distance(input_mesh_file, reference_mesh_file):
 def unidirectional_hausdorff_distance(input_mesh_file, reference_mesh_file):
     input_mesh = trimesh.load_mesh(input_mesh_file)
     reference_mesh = trimesh.load_mesh(reference_mesh_file)
-    distance_input_to_reference = input_mesh.hausdorff_distance(reference_mesh)
+    input_mesh_points = input_mesh.vertices
+    reference_mesh_points = reference_mesh.vertices
+    distance_input_to_reference = directed_hausdorff(input_mesh_points, reference_mesh_points)[0]
     return distance_input_to_reference
 
 
 def unidirectional_hausdorff_distance_reverse(input_mesh_file, reference_mesh_file):
     input_mesh = trimesh.load_mesh(input_mesh_file)
     reference_mesh = trimesh.load_mesh(reference_mesh_file)
-    distance_reference_to_input = reference_mesh.hausdorff_distance(input_mesh)
+    input_mesh_points = input_mesh.vertices
+    reference_mesh_points = reference_mesh.vertices
+    distance_reference_to_input = directed_hausdorff(reference_mesh_points, input_mesh_points)[0]
     return distance_reference_to_input
 
 
@@ -37,9 +43,10 @@ def bidirectional_hausdorff_distance(input_mesh_file, reference_mesh_file):
     bidirectional_distance = max(distance_input_to_reference, distance_reference_to_input)
     return bidirectional_distance
 
+
 if __name__ == '__main__':
-    input_mesh_file = "input_mesh.obj"
-    reference_mesh_file = "reference_mesh.obj"
+    input_mesh_file = "../project/hand/01hand_model.obj"
+    reference_mesh_file = "../project/hand/01hand.obj"
 
     # Compute chamfer distance
     chamfer_dist = chamfer_distance(input_mesh_file, reference_mesh_file)

@@ -1,6 +1,10 @@
 import trimesh
+
+input_mesh = trimesh.load_mesh('../project/hand/01hand_MA_scp.obj')
 unit_sphere = trimesh.load_mesh('./data/sphere_I.obj')
 spheres = []
+
+
 def read_vertex_data(filename):
     vertices = []
     edges = []
@@ -17,14 +21,15 @@ def read_vertex_data(filename):
                 edge_data = line[2:].split()
                 if len(edge_data) == 2:
                     e1, e2 = map(int, edge_data)
-                    edges.append((e1-1,e2-1))
+                    edges.append((e1 - 1, e2 - 1))
             if line.startswith('f '):
                 face_data = line[2:].split()
                 if len(face_data) == 3:
                     f1, f2, f3 = map(int, face_data)
-                    faces.append((f1-1, f2-1, f3-1))
+                    faces.append((f1 - 1, f2 - 1, f3 - 1))
 
     return vertices, edges, faces
+
 
 vertices, edges, faces = read_vertex_data("./data/input.obj")
 
@@ -32,12 +37,11 @@ for vertex in vertices:
     center = vertex[:3]
     radius = vertex[3]
     transformed_sphere = unit_sphere.copy()
-    transformed_sphere.vertices*=radius
-    transformed_sphere.vertices+=center
+    transformed_sphere.vertices *= radius
+    transformed_sphere.vertices += center
     spheres.append(transformed_sphere)
 
 convex_hull_mesh = trimesh.Trimesh()
-
 
 for edge in edges:
     sphere1 = spheres[edge[0]]
@@ -51,4 +55,4 @@ for face in faces:
     face_mesh = trimesh.util.concatenate([sphere1, sphere2, sphere3]).convex_hull
     convex_hull_mesh = trimesh.util.concatenate([convex_hull_mesh, face_mesh])
 
-convex_hull_mesh.export('./data/output.obj')
+convex_hull_mesh.export('../project/hand/01hand_output_scp.obj')
