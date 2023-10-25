@@ -31,6 +31,8 @@ pip install scipy
 # 2D tools
 ## Power Diagram & Voronoi Diagram
 [2D_PD_VD.py](2D_PD_VD.py)
+
 (Note we have VD == PD when all radii are zero.)
+
 From repo: https://gist.github.com/marmakoide/45d5389252683ae09c2df49d0548a627
 
