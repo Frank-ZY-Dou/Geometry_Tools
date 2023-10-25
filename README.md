@@ -22,3 +22,10 @@ pip install scipy
 
 # Metrics
 [metrics.py](metrics.py)
+
+# 2D tools
+## Power Diagram
+[2D_PD.py](2D_PD.py)
+
+From repo: https://gist.github.com/marmakoide/45d5389252683ae09c2df49d0548a627
+
