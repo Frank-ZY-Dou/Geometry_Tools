@@ -1,5 +1,5 @@
 # Geometry_Tools
-Some geometry tools.
+Some geometry tools. Maintained by [Frank Zhiyang Dou](https://frank-zy-dou.github.io/index.html).
 
 A list of our research work on Geometry Modeling and Processing.
 - **[Medial Axis Approximation/Skeletonization]** 
