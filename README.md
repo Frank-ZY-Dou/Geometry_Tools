@@ -22,8 +22,7 @@ pip install scipy
 ![snapshot00.png](assets%2Fsnapshot00.png)
 - Lazy shape reconstruction from MA file produced by QMAT:[MAT_Mesh_MA.py](MAT_Mesh_MA.py).
 
-
-_- Mesh Voxelization.
+- Mesh Voxelization.
 ![MA_reconstruction.jpg](assets%2FMA_reconstruction.jpg)_
 
 
