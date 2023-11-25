@@ -18,11 +18,13 @@ pip install scipy
 ```
 
 # Mesh Reconstruction from MA
-- Lazy shape reconstruction from MA file ([input.obj](data%2Finput.obj)).
+- Lazy shape reconstruction from MA file: [MAT_Mesh.py](MAT_Mesh.py).
 ![snapshot00.png](assets%2Fsnapshot00.png)
+- Lazy shape reconstruction from MA file produced by QMAT:[MAT_Mesh_MA.py](MAT_Mesh_MA.py).
 
-- Mesh Voxelization.
-![MA_reconstruction.jpg](assets%2FMA_reconstruction.jpg)
+
+_- Mesh Voxelization.
+![MA_reconstruction.jpg](assets%2FMA_reconstruction.jpg)_
 
 
 # Metrics
