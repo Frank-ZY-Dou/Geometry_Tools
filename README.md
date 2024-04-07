@@ -23,6 +23,7 @@ pip install scipy
 - From the github: https://github.com/songshibo/blender-mat-addon
 Blender version: 4.0.2; MacBook M2 chip.
 Please install [mat_import.zip](mat_import.zip) following https://github.com/songshibo/blender-mat-addon. Contributors: [Shibo Song](https://songshibo.github.io/) & [Ningna Wang](https://ningnawang.github.io/). 
+
 Script: [MA2Mesh_Mac_Blender4.0.blend](MA2Mesh_Mac_Blender4.0.blend)
 
 - Lazy shape reconstruction from MA file: [MAT_Mesh.py](MAT_Mesh.py).
