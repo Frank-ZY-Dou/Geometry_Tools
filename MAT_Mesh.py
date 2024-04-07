@@ -1,6 +1,6 @@
 import trimesh
 
-input_mesh = trimesh.load_mesh('../project/hand/01hand_MA_scp.obj')
+# input_mesh = trimesh.load_mesh('../project/hand/01hand_MA_scp.obj')
 unit_sphere = trimesh.load_mesh('./data/sphere_I.obj')
 spheres = []
 
@@ -31,8 +31,7 @@ def read_vertex_data(filename):
     return vertices, edges, faces
 
 
-vertices, edges, faces = read_vertex_data("./data/input.obj")
-
+vertices, edges, faces = read_vertex_data("./01ant_op.obj")
 for vertex in vertices:
     center = vertex[:3]
     radius = vertex[3]
@@ -55,4 +54,4 @@ for face in faces:
     face_mesh = trimesh.util.concatenate([sphere1, sphere2, sphere3]).convex_hull
     convex_hull_mesh = trimesh.util.concatenate([convex_hull_mesh, face_mesh])
 
-convex_hull_mesh.export('../project/hand/01hand_output_scp.obj')
+convex_hull_mesh.export('./01ant_op_mesh.obj')

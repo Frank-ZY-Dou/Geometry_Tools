@@ -202,11 +202,11 @@ def display(S, R, tri_list, voronoi_cell_map):
 
 def main():
     # Generate samples, S contains circles center, R contains circles radius
-    sample_count = 32
+    sample_count = 4
     S = 5 * disc_uniform_pick(sample_count)
     # here generate your seeds
     R = 0 * (.8 * numpy.random.random(sample_count) + .2)
-    R = .8 * numpy.random.random(sample_count) + .2
+    # R = .8 * numpy.random.random(sample_count) + .2
 
     # here generate your radius
     # Compute the power triangulation of the circles
