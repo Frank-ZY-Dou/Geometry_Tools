@@ -1,6 +1,5 @@
 import trimesh
 from itertools import filterfalse
-import bmesh
 
 ################
 # Code credit to https://github.com/songshibo/blender-mat-addon/tree/main
@@ -101,7 +100,7 @@ def load_ma_file(filepath):
 def generate_medial_mesh(name, verts, radii, faces, edges, *args):
     if len(args) == 0:  # stndard MAT
         # Simply assemble Medial Mesh
-        with open("./Medial_Mesh/"+name + '.obj', 'w') as file:
+        with open(name + '.obj', 'w') as file:
             for v in verts:
                 file.write(f'v {v[0]} {v[1]} {v[2]}\n')
             for e in edges:
@@ -109,13 +108,13 @@ def generate_medial_mesh(name, verts, radii, faces, edges, *args):
             for f in faces:
                 file.write(f'f {f[0] + 1} {f[1] + 1} {f[2] + 1}\n')  # OBJ索引从1开始
 
-        with open("./Medial_Mesh/"+name + '_l.obj', 'w') as file:
+        with open(name + '_l.obj', 'w') as file:
             for v in verts:
                 file.write(f'v {v[0]} {v[1]} {v[2]}\n')
             for e in edges:
                 file.write(f'l {e[0] + 1} {e[1] + 1}\n')  # OBJ索引从1开始
 
-        with open("./Medial_Mesh/"+name + '_f.obj', 'w') as file:
+        with open(name + '_f.obj', 'w') as file:
             for v in verts:
                 file.write(f'v {v[0]} {v[1]} {v[2]}\n')
             for f in faces:
@@ -125,8 +124,25 @@ def generate_medial_mesh(name, verts, radii, faces, edges, *args):
 
 
 if __name__ == '__main__':
-    filepath = "./data/chair111.ma___v_115___e_220___f_103.ma"
-    vcount, ecount, fcount, verts, radii, faces, edges = load_ma_file(
-        filepath)
-    mat_name = filepath.split("/")[-1].replace(".ma","")
-    generate_medial_mesh(mat_name, verts, radii, faces, edges)
+    filelist = ["01crab_QMAT+.ma",
+                "01crab_QMAT.ma",
+                "01dog_QMAT+.ma",
+                "01dog_QMAT.ma",
+                "01fertility_QMAT+.ma",
+                "01fertility_QMAT.ma",
+                "01hand_QMAT+.ma",
+                "01hand_QMAT.ma",
+                "01vase_QMAT+.ma",
+                "01vase_QMAT.ma",
+                "01dog_MATFP.ma",
+                "01crab_MATFP.ma",
+                "01hand_MATFP.ma",
+                "01fertility_MATFP.ma",
+                "01vase_MATFP.ma"
+                ]
+    for filename in filelist:
+        filepath = "./data/%s"%filename
+        vcount, ecount, fcount, verts, radii, faces, edges = load_ma_file(
+            filepath)
+        mat_name = filename.split("/")[-1].replace(".ma","")
+        generate_medial_mesh("./Medial_Mesh/"+mat_name, verts, radii, faces, edges)

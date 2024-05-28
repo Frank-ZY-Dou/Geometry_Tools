@@ -11,6 +11,7 @@ def read_vertex_data(filename):
     faces = []
     with open(filename, 'r') as file:
         for line in file:
+            print(line)
             line = line.strip()
             if line.startswith('v '):
                 vertex_data = line[2:].split()
@@ -27,11 +28,11 @@ def read_vertex_data(filename):
                 if len(face_data) == 3:
                     f1, f2, f3 = map(int, face_data)
                     faces.append((f1 - 1, f2 - 1, f3 - 1))
-
     return vertices, edges, faces
-
-
-vertices, edges, faces = read_vertex_data("./01ant_op.obj")
+# 01human-2_MA-1-1.obj
+# 01crab_4_MA-1-1.obj
+vertices, edges, faces = read_vertex_data("./data/01crab_4/01crab_4_MA-1-1.obj")
+vertices, edges, faces = read_vertex_data("./data/01human-2/01human-2_MA-1-1.obj")
 for vertex in vertices:
     center = vertex[:3]
     radius = vertex[3]
@@ -54,4 +55,4 @@ for face in faces:
     face_mesh = trimesh.util.concatenate([sphere1, sphere2, sphere3]).convex_hull
     convex_hull_mesh = trimesh.util.concatenate([convex_hull_mesh, face_mesh])
 
-convex_hull_mesh.export('./01ant_op_mesh.obj')
+convex_hull_mesh.export('./01human-2_model-1-1.obj')
