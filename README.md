@@ -3,8 +3,8 @@ Some geometry tools, maintained by [Frank Zhiyang Dou](https://frank-zy-dou.gith
 
 A list of our research works on Geometry Modeling and Processing.
 - **[Medial Axis Approximation/Skeletonization]** 
-  - Coverage Axis++: Efficient Skeletal Points Selection for 3D Shape Skeletionization, coming soon.
-  - Coverage Axis: Inner Point Selection for 3D Shape Skeletonization, EUROGRAPHICS 2020. [[paper]](https://frank-zy-dou.github.io/projects/CoverageAxis/index.html)
+  - Coverage Axis++: Efficient Skeletal Points Selection for 3D Shape Skeletionization, EUROGRAPHICS SGP 2024.  [[paper]](https://frank-zy-dou.github.io/projects/CoverageAxis++/index.html)
+  - Coverage Axis: Inner Point Selection for 3D Shape Skeletonization, EUROGRAPHICS 2022. [[paper]](https://frank-zy-dou.github.io/projects/CoverageAxis/index.html)
 - **[Point Cloud Orientation]** 
   - Globally Consistent Normal Orientation for Point Clouds by Regularizing the Winding-Number Field, SIGGRAPH 2023. [[paper]](https://xrvitd.github.io/Projects/GCNO/index.html)
 - **[Surface Reconstruction]** 
@@ -45,3 +45,8 @@ Script: [MA2Mesh_Mac_Blender4.0.blend](MA2Mesh_Mac_Blender4.0.blend)
 
 From repo: https://gist.github.com/marmakoide/45d5389252683ae09c2df49d0548a627
 
+# 3D tools
+- mesh2soup
+[mesh2soup.py](mesh2soup.py)
+- edge face exporter
+[obj_converter.py](obj_converter.py)
