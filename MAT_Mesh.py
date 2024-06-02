@@ -31,8 +31,8 @@ def read_vertex_data(filename):
     return vertices, edges, faces
 # 01human-2_MA-1-1.obj
 # 01crab_4_MA-1-1.obj
-vertices, edges, faces = read_vertex_data("./data/01crab_4/01crab_4_MA-1-1.obj")
-vertices, edges, faces = read_vertex_data("./data/01human-2/01human-2_MA-1-1.obj")
+vertices, edges, faces = read_vertex_data("./data/01Hand_MA_with_r.obj")
+# vertices, edges, faces = read_vertex_data("./data/01human-2/01human-2_MA-1-1.obj")
 for vertex in vertices:
     center = vertex[:3]
     radius = vertex[3]
@@ -55,4 +55,4 @@ for face in faces:
     face_mesh = trimesh.util.concatenate([sphere1, sphere2, sphere3]).convex_hull
     convex_hull_mesh = trimesh.util.concatenate([convex_hull_mesh, face_mesh])
 
-convex_hull_mesh.export('./01human-2_model-1-1.obj')
+convex_hull_mesh.export('./data/01Hand_Model.obj')

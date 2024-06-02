@@ -28,7 +28,7 @@ def read_vertex_data_ma(filename):
 
 
 unit_sphere = trimesh.load_mesh('./data/sphere_I.obj')
-vertices, edges, faces = read_vertex_data_ma("./data/chair_0002.ma")
+vertices, edges, faces = read_vertex_data_ma("./data/01hand_QMAT_no_con.ma")
 spheres = []
 
 
@@ -54,4 +54,4 @@ for face in faces:
     face_mesh = trimesh.util.concatenate([sphere1, sphere2, sphere3]).convex_hull
     convex_hull_mesh = trimesh.util.concatenate([convex_hull_mesh, face_mesh])
 
-convex_hull_mesh.export('./data/chair111_ma_mesh.obj')
+convex_hull_mesh.export('./data/01hand_QMAT_no_con_model.obj')

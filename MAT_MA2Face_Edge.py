@@ -101,8 +101,8 @@ def generate_medial_mesh(name, verts, radii, faces, edges, *args):
     if len(args) == 0:  # stndard MAT
         # Simply assemble Medial Mesh
         with open(name + '.obj', 'w') as file:
-            for v in verts:
-                file.write(f'v {v[0]} {v[1]} {v[2]}\n')
+            for lid, v in enumerate(verts):
+                file.write(f'v {v[0]} {v[1]} {v[2]} {radii[lid]}\n')
             for e in edges:
                 file.write(f'l {e[0] + 1} {e[1] + 1}\n')  # OBJ索引从1开始
             for f in faces:
@@ -124,21 +124,23 @@ def generate_medial_mesh(name, verts, radii, faces, edges, *args):
 
 
 if __name__ == '__main__':
-    filelist = ["01crab_QMAT+.ma",
-                "01crab_QMAT.ma",
-                "01dog_QMAT+.ma",
-                "01dog_QMAT.ma",
-                "01fertility_QMAT+.ma",
-                "01fertility_QMAT.ma",
-                "01hand_QMAT+.ma",
-                "01hand_QMAT.ma",
-                "01vase_QMAT+.ma",
-                "01vase_QMAT.ma",
-                "01dog_MATFP.ma",
-                "01crab_MATFP.ma",
-                "01hand_MATFP.ma",
-                "01fertility_MATFP.ma",
-                "01vase_MATFP.ma"
+    # filelist = ["01crab_QMAT+.ma",
+    #             "01crab_QMAT.ma",
+    #             "01dog_QMAT+.ma",
+    #             "01dog_QMAT.ma",
+    #             "01fertility_QMAT+.ma",
+    #             "01fertility_QMAT.ma",
+    #             "01hand_QMAT+.ma",
+    #             "01hand_QMAT.ma",
+    #             "01vase_QMAT+.ma",
+    #             "01vase_QMAT.ma",
+    #             "01dog_MATFP.ma",
+    #             "01crab_MATFP.ma",
+    #             "01hand_MATFP.ma",
+    #             "01fertility_MATFP.ma",
+    #             "01vase_MATFP.ma"
+    #             ]
+    filelist = ["01hand_QMAT.ma"
                 ]
     for filename in filelist:
         filepath = "./data/%s"%filename
