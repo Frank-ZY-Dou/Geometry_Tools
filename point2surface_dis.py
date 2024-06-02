@@ -40,7 +40,6 @@ def read_vertex_data(filename):
 
 def write_obj_with_distances( vertices, edges, faces, distances, output_file):
     with open(output_file, 'w') as file:
-        # 写入顶点信息和距离
         for i, vertex in enumerate(vertices):
             file.write(f"v {vertex[0]} {vertex[1]} {vertex[2]} {distances[i]}\n")
         for i, edge in enumerate(edges):
